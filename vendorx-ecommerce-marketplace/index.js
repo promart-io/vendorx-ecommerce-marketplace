@@ -10,7 +10,7 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	}
 	loadMain();
 	
-	var slides = '../../js/vendorx-ecommerce-admin/api/Site/Slides.js';
+	var slides = '../../js/vendorx-ecommerce-admin/api/Site/Slides.js?IndexId=1';
 	function loadSlides() {
 		$http.get(slides)
 		.success(function(data) {
@@ -19,7 +19,7 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	}
 	loadSlides();
 	
-	var features = '../../js/vendorx-ecommerce-admin/api/Site/Features.js';
+	var features = '../../js/vendorx-ecommerce-admin/api/Site/Features.js?IndexId=1';
 	function loadFeatures() {
 		$http.get(features)
 		.success(function(data) {
@@ -27,6 +27,15 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 		});
 	}
 	loadFeatures();
+	
+	var promotions = '../../js/vendorx-ecommerce-admin/api/Site/Promotions.js?IndexId=1';
+	function loadPromotions() {
+		$http.get(promotions)
+		.success(function(data) {
+			$scope.promotions = data;
+		});
+	}
+	loadPromotions();
 	
 
 });
