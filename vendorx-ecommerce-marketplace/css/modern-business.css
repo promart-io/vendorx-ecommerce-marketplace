@@ -91,3 +91,27 @@ footer {
         height: 70%;
     }
 }
+
+/*
+.features-icons .features-icons-item {
+  max-width: 20rem;
+}
+*/
+
+.features-icons .features-icons-item .features-icons-icon {
+  height: 9rem;
+}
+
+.features-icons .features-icons-item .features-icons-icon i {
+  font-size: 7rem;
+}
+
+.features-icons .features-icons-item:hover .features-icons-icon i {
+  font-size: 8rem;
+}
+
+.page-header {
+	margin-top: 1.6em;
+    margin-bottom: 2em;
+    font-size: 42px;
+}

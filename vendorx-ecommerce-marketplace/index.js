@@ -2,7 +2,6 @@ angular.module('index', []);
 angular.module('index').controller('IndexController', function ($scope, $http) {
 
 	var main = '../../js/vendorx-ecommerce-admin/api/Site/Index.js/1';
-
 	function loadMain() {
 		$http.get(main)
 		.success(function(data) {
@@ -12,7 +11,6 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	loadMain();
 	
 	var slides = '../../js/vendorx-ecommerce-admin/api/Site/Slides.js';
-
 	function loadSlides() {
 		$http.get(slides)
 		.success(function(data) {
@@ -21,6 +19,14 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	}
 	loadSlides();
 	
+	var features = '../../js/vendorx-ecommerce-admin/api/Site/Features.js';
+	function loadFeatures() {
+		$http.get(features)
+		.success(function(data) {
+			$scope.features = data;
+		});
+	}
+	loadFeatures();
 	
 
 });

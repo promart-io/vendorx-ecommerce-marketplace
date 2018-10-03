@@ -64,47 +64,31 @@
 
     <!-- Page Content -->
     <div class="container">
-
+    
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{data.WelcomeMessage}}
+            </h1>
+        </div>
+            
         <!-- Marketing Icons Section -->
         <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">
-                    {{data.WelcomeMessage}}
-                </h1>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-check"></i> Bootstrap v3.2.0</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-gift"></i> Free &amp; Open Source</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                    </div>
-                    <div class="panel-body">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            
+            <section class="features-icons bg-light text-center">
+		      <div class="container">
+		        <div class="row">
+		          <div class="col-lg-4" ng-repeat="next in features">
+		            <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+		              <div class="features-icons-icon d-flex">
+		                <i class="fa fa-{{next.Image}} m-auto text-primary" style="color: {{next.Color}}"></i>
+		              </div>
+		              <h3>{{next.Name}}</h3>
+		              <p class="lead mb-0">{{next.Description}}</p>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
         </div>
         <!-- /.row -->
 
