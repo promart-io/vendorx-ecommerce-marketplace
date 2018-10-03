@@ -37,5 +37,14 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	}
 	loadPromotions();
 	
+	var clearance = '../../js/vendorx-ecommerce-admin/api/Site/Clearance.js?IndexId=1';
+	function loadClearance() {
+		$http.get(clearance)
+		.success(function(data) {
+			$scope.clearance = data;
+		});
+	}
+	loadClearance();
+	
 
 });
