@@ -1,10 +1,14 @@
-angular.module('marketplace', []);
-angular.module('marketplace').controller('MarketplaceController', function ($scope, $http, $location) {
+angular.module('product', []);
+angular.module('product').controller('ProductController', function ($scope, $http, $location) {
 	
 	var searchParams = new URLSearchParams(window.location.search);
 	$scope.category = searchParams.get('category');
 	if (!$scope.category) {
 		$scope.category = 1;
+	}
+	$scope.id = searchParams.get('product');
+	if (!$scope.id) {
+		$scope.id = 1;
 	}
 	
 	var index = '../../js/vendorx-ecommerce-admin/api/Site/Index.js/1';
@@ -25,15 +29,6 @@ angular.module('marketplace').controller('MarketplaceController', function ($sco
 	}
 	loadMarketplace();
 	
-	var slides = '../../js/vendorx-ecommerce-admin/api/Site/Slides.js?IndexId=1';
-	function loadSlides() {
-		$http.get(slides)
-		.success(function(data) {
-			$scope.slides = data;
-		});
-	}
-	loadSlides();
-	
 	var categories = '../../js/vendorx-ecommerce-admin/api/Nomenclatures/Categories.js?IndexId=1';
 	function loadCategories() {
 		$http.get(categories)
@@ -42,6 +37,15 @@ angular.module('marketplace').controller('MarketplaceController', function ($sco
 		});
 	}
 	loadCategories();
+	
+	var product = '../../js/vendorx-ecommerce-admin/api/Products/Products.js/' + $scope.id;
+	function loadProduct() {
+		$http.get(product)
+		.success(function(data) {
+			$scope.product = data;
+		});
+	}
+	loadProduct();
 	
 	var products = '../../js/vendorx-ecommerce-admin/api/Products/Products.js?CategoryId=' + $scope.category;
 	function loadProducts() {
@@ -54,24 +58,6 @@ angular.module('marketplace').controller('MarketplaceController', function ($sco
 		});
 	}
 	loadProducts();
-	
-	var promotions = '../../js/vendorx-ecommerce-admin/api/Site/Promotions.js?IndexId=1';
-	function loadPromotions() {
-		$http.get(promotions)
-		.success(function(data) {
-			$scope.promotions = data;
-		});
-	}
-	loadPromotions();
-	
-	var clearance = '../../js/vendorx-ecommerce-admin/api/Site/Clearance.js?IndexId=1';
-	function loadClearance() {
-		$http.get(clearance)
-		.success(function(data) {
-			$scope.clearance = data;
-		});
-	}
-	loadClearance();
 	
 
 });
