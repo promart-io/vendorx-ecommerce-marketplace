@@ -52,7 +52,10 @@ angular.module('product').controller('ProductController', function ($scope, $htt
 		$http.get(products)
 		.success(function(data) {
 			$scope.products = data;
-			$scope.products.forEach(function(product){
+			$scope.products.forEach(function(product, index, object){
+				if (product.Id === $scope.product.Id) {
+    				object.splice(index, 1);
+  				}
 				product.Link = 'product.html?category=' + $scope.category + '&product=' + product.Id;
 			});
 		});
