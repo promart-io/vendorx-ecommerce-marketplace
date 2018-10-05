@@ -78,9 +78,9 @@
                 <p>{{product.Description}}</p>
                 <h3>Product Details</h3>
                 <ul>
-                    <li>Size: {{product.Size}}</li>
-                    <li>List Price: <strike style="color:red">{{ product.CurrencyId === 2 ? '$' : 'EUR'}}{{product.PriceRRP | number:2}}</strike></li>
-                    <li>Our Price: {{ product.CurrencyId === 2 ? '$' : 'EUR'}}{{product.Price | number:2}}</li>
+                    <li>Size: {{product.Size}} {{product.UomId}}</li>
+                    <li>List Price: <strike style="color:red">{{ product.CurrencyId === 'USD' ? '$' : product.CurrencyId}}{{product.PriceRRP | number:2}}</strike></li>
+                    <li>Our Price: {{ product.CurrencyId === 'USD' ? '$' : product.CurrencyId}}{{product.Price | number:2}}</li>
                     <li>Identifier: {{product.GTIN}}</li>
                 </ul>
             </div>
