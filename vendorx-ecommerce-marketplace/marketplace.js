@@ -16,6 +16,15 @@ angular.module('marketplace').controller('MarketplaceController', function ($sco
 	}
 	loadIndex();
 	
+	var menu = '../../js/vendorx-ecommerce-admin/api/Site/Menu.js/1';
+	function loadMenu() {
+		$http.get(menu)
+		.success(function(data) {
+			$scope.menu = data;
+		});
+	}
+	loadMenu();
+	
 	var marketplace = '../../js/vendorx-ecommerce-admin/api/Site/Marketplace.js/1';
 	function loadMarketplace() {
 		$http.get(marketplace)
@@ -55,23 +64,4 @@ angular.module('marketplace').controller('MarketplaceController', function ($sco
 	}
 	loadProducts();
 	
-	var promotions = '../../js/vendorx-ecommerce-admin/api/Site/Promotions.js?IndexId=1';
-	function loadPromotions() {
-		$http.get(promotions)
-		.success(function(data) {
-			$scope.promotions = data;
-		});
-	}
-	loadPromotions();
-	
-	var clearance = '../../js/vendorx-ecommerce-admin/api/Site/Clearance.js?IndexId=1';
-	function loadClearance() {
-		$http.get(clearance)
-		.success(function(data) {
-			$scope.clearance = data;
-		});
-	}
-	loadClearance();
-	
-
 });

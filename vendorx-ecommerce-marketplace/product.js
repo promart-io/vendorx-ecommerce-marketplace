@@ -20,6 +20,15 @@ angular.module('product').controller('ProductController', function ($scope, $htt
 	}
 	loadIndex();
 	
+	var menu = '../../js/vendorx-ecommerce-admin/api/Site/Menu.js/1';
+	function loadMenu() {
+		$http.get(menu)
+		.success(function(data) {
+			$scope.menu = data;
+		});
+	}
+	loadMenu();
+	
 	var marketplace = '../../js/vendorx-ecommerce-admin/api/Site/Marketplace.js/1';
 	function loadMarketplace() {
 		$http.get(marketplace)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="marketplace">
+<html lang="en" ng-app="marketplace" ng-controller="MarketplaceController">
 
 <head>
 
@@ -9,18 +9,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ProMART Marketplace by VendorX</title>
+    <title>{{data.BrandName}}</title>
 
     <!-- Bootstrap Core CSS -->
-    <!-- <link href="../../../../../../services/v3/core/theme/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     
-    <link type="text/css" href="../../../../../../services/v3/web/resources/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     
 </head>
 
-<body ng-controller="MarketplaceController">
+<body>
 
     <div ng-include="'tmpl/nav.tmpl.html'"></div>
 
@@ -41,8 +41,8 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Marketplace
-                    <small>Catalog</small>
+                <h1 class="page-header">{{marketplace.Heading}}
+                    <small>{{marketplace.Subheading}}</small>
                 </h1>
             </div>
         </div>

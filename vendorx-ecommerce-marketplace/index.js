@@ -10,6 +10,15 @@ angular.module('index').controller('IndexController', function ($scope, $http) {
 	}
 	loadMain();
 	
+	var menu = '../../js/vendorx-ecommerce-admin/api/Site/Menu.js/1';
+	function loadMenu() {
+		$http.get(menu)
+		.success(function(data) {
+			$scope.menu = data;
+		});
+	}
+	loadMenu();
+	
 	var slides = '../../js/vendorx-ecommerce-admin/api/Site/Slides.js?IndexId=1';
 	function loadSlides() {
 		$http.get(slides)
