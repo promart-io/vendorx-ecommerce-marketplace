@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
+<html lang="en" ng-app="about" ng-controller="AboutController">
 
 <head>
 
@@ -9,17 +9,18 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ProMART Marketplace by VendorX</title>
+    <title>{{data.BrandName}}</title>
 
     <!-- Bootstrap Core CSS -->
     <!-- <link href="../../../../../../services/v3/core/theme/bootstrap.min.css" rel="stylesheet"> -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="css/shop-homepage.css" rel="stylesheet">
     
-    <link type="text/css" href="../../../../../../services/v3/web/resources/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -40,8 +41,8 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">About
-                    <small>Subheading</small>
+                <h1 class="page-header">{{about.Heading}}
+                    <small>{{about.Subheading}}</small>
                 </h1>
                 
             </div>
@@ -51,166 +52,15 @@
         <!-- Intro Content -->
         <div class="row">
             <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <img class="img-responsive" src="{{about.Image}}" alt="">
             </div>
             <div class="col-md-6">
-                <h2>About Modern Business</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed voluptate nihil eum consectetur similique? Consectetur, quod, incidunt, harum nisi dolores delectus reprehenderit voluptatem perferendis dicta dolorem non blanditiis ex fugiat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, magni, aperiam vitae illum voluptatum aut sequi impedit non velit ab ea pariatur sint quidem corporis eveniet. Odit, temporibus reprehenderit dolorum!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p>
+                <h2>{{about.AboutHeading}}</h2>
+                <p>{{about.AboutText}}</p>
             </div>
         </div>
         <!-- /.row -->
 
-        <!-- Team Members -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Our Team</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 text-center">
-                <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3>John Smith<br>
-                            <small>Job Title</small>
-                        </h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste saepe et quisquam nesciunt maxime.</p>
-                        <ul class="list-inline">
-                            <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Our Customers -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Our Customers</h2>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6">
-                <img class="img-responsive customer-img" src="http://placehold.it/500x300" alt="">
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
         
     </div>
         
@@ -225,6 +75,8 @@
     <!-- AngularJS -->
 	<script type="text/javascript" src="../../../../../../services/v3/web/resources/angular/1.4.7/angular.min.js"></script>
 	<script type="text/javascript" src="../../../../../../services/v3/web/resources/angular/1.4.7/angular-resource.min.js"></script>
+	
+	<script type="text/javascript" src="about.js"></script>
 	
 </body>
 
