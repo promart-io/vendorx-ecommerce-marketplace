@@ -39,8 +39,8 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Marketplace
-                    <small>Product</small>
+                <h1 class="page-header">{{marketplace.Heading}}
+                    <small>{{marketplace.Subheading}}</small>
                 </h1>
             </div>
         </div>
@@ -110,51 +110,19 @@
                 <div class="well">
 
                     <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
+                        <button type="button" ng-click="openNewDialog()" class="btn btn-success">Leave a Review</button>
                     </div>
 
                     <hr>
 
-                    <div class="row">
+                    <div ng-repeat="next in reviews" class="row">
                         <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">10 days ago</span>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">12 days ago</span>
-                            <p>I've alredy ordered another one!</p>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            Anonymous
-                            <span class="pull-right">15 days ago</span>
-                            <p>I've seen some better than this, but not at this price. I definitely recommend this item.</p>
+                            
+                            <span uib-rating ng-model="next.Rating" max="5" read-only="true" on-hover="hoveringOver(value)" on-leave="overStar = null" aria-labelledby="default-rating"></span>
+                            
+                            <b><i>{{next.UserName}}</i></b>
+                            <span class="pull-right">{{next.CreatedAt}}</span>
+                            <p>{{next.Comment}}</p>
                         </div>
                     </div>
 
@@ -166,6 +134,42 @@
 
     </div>
     <!-- /.container -->
+    
+    
+    <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" id="modalLabel">Create a Review</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label>Your Name</label>
+							<input type="text" class="form-control" placeholder="Enter name" ng-model="review.UserName">
+						</div>
+						<div class="form-group">
+							<label>Comment</label>
+							<textarea rows=5 class="form-control" placeholder="Enter comment" ng-model="review.Comment"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Rating</label>
+							<div>
+							  <span uib-rating ng-model="review.Rating" max="5" read-only="false" on-hover="hoveringOver(value)" on-leave="overStar = null" aria-labelledby="default-rating"></span>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" ng-show="actionType === 'new'" ng-click="create()">Comment</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
     <div ng-include="'tmpl/footer.tmpl.html'"></div>
 
@@ -178,6 +182,11 @@
 	<!-- AngularJS -->
 	<script type="text/javascript" src="../../../../../../services/v3/web/resources/angular/1.4.7/angular.min.js"></script>
 	<script type="text/javascript" src="../../../../../../services/v3/web/resources/angular/1.4.7/angular-resource.min.js"></script>
+	
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-sanitize.min.js"></script>
 	
 	<script type="text/javascript" src="product.js"></script>
 	

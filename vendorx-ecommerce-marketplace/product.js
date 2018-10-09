@@ -1,4 +1,4 @@
-angular.module('product', []);
+angular.module('product', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 angular.module('product').controller('ProductController', function ($scope, $http, $location) {
 	
 	var searchParams = new URLSearchParams(window.location.search);
@@ -62,7 +62,7 @@ angular.module('product').controller('ProductController', function ($scope, $htt
 		.success(function(data) {
 			$scope.products = data;
 			$scope.products.forEach(function(product, index, object){
-				if (product.Id === $scope.product.Id) {
+				if ($scope.product && product.Id === $scope.product.Id) {
     				object.splice(index, 1);
   				}
 				product.Link = 'product.html?category=' + $scope.category + '&product=' + product.Id;
@@ -71,5 +71,52 @@ angular.module('product').controller('ProductController', function ($scope, $htt
 	}
 	loadProducts();
 	
+	var reviews = '../../js/vendorx-ecommerce-admin/api/Products/Reviews.js?ProductId=' + $scope.id + '&sort=CreatedAt';
+	function loadReviews() {
+		$http.get(reviews)
+		.success(function(data) {
+			$scope.reviews = data;
+		});
+	}
+	loadReviews();
+	
 
+
+    $scope.rate = 7;
+    $scope.max = 10;
+    $scope.isReadonly = false;
+  
+    $scope.hoveringOver = function(value) {
+        $scope.overStar = value;
+        $scope.percent = 100 * (value / $scope.max);
+    };
+
+    $scope.ratingStates = [
+        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+        {stateOn: 'glyphicon-heart'},
+        {stateOff: 'glyphicon-off'}
+    ];
+
+    $scope.openNewDialog = function() {
+		$scope.actionType = 'new';
+		$scope.entity = {};
+		$('#reviewModal').modal('toggle');
+	};
+	
+	$scope.create = function() {
+		$scope.review.ProductId=$scope.id;
+		$scope.review.CreatedAt = new Date();
+		$http.post('../../js/vendorx-ecommerce-admin/api/Products/Reviews.js', JSON.stringify($scope.review))
+		    .success(function(data) {
+			    $('#reviewModal').modal('toggle');
+			    $scope.reviews.push($scope.review);
+		    }).error(function(data) {
+               alert(JSON.stringify(data));
+            });
+			
+	};
+
+	
 });
