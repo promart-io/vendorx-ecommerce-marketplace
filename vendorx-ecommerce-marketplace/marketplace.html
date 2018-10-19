@@ -86,7 +86,7 @@
 
                     <div ng-repeat="next in products" class="col-sm-4 col-lg-4 col-md-4">
                         <div class="thumbnail">
-                            <img class="img-responsive img-hover" src="{{next.Image}}" alt="">
+                            <a href="{{next.Link}}"><img class="img-responsive img-hover" src="{{next.Image}}" alt=""></a>
                             <div class="caption">
                                 <h4 class="pull-right">{{ next.CurrencyId === 'USD' ? '$' : next.CurrencyId}}{{next.Price}}</h4>
                                 <h4><a href="{{next.Link}}">{{next.Name}}</a>
